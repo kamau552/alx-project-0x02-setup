@@ -1,14 +1,53 @@
+import React, { useState } from "react";
+import PostModal from "@/components/common/PostModal";
 import Header from '../components/layout/Header';
 import Card from '@/components/common/Card';
 
+
+interface Post {
+  title: string;
+  content: string;
+}
+
 export default function Home() {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleAddPost = (post: Post) => {
+    setPosts((prevPosts) => [...prevPosts, post]);
+  };
+
   return (
-    <>
-      <Header />
-      <main className="p-4">
-        <h1 className="text-2xl">This is the Home Page</h1>
-      </main>
-      <Card title="Welcome" content="This is the home page card." />
-    </>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Home Page</h1>
+
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className="mb-6 bg-teal-600 text-white px-4 py-2 rounded"
+      >
+        Add Post
+      </button>
+
+      <PostModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleAddPost}
+      >
+        {/* You can customize the modal content here */}
+        <div>
+          <h2 className="text-xl font-bold mb-2">Add a New Post</h2>
+        </div>
+      </PostModal>
+
+      <div className="space-y-4">
+        {posts.map((post, index) => (
+          <div key={index} className="p-4 bg-gray-100 rounded shadow">
+            <h3 className="text-lg font-semibold">{post.title}</h3>
+            <p>{post.content}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
+
