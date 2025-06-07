@@ -1,6 +1,7 @@
 import { cva, VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonProps } from "@/interfaces";
+import { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -8,17 +9,19 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     children: ReactNode;
     className?: string;
     size?: "small" | "medium" | "large";
+    shape?: "default" | "pill" | "square";
+    variant?: "primary" | "secondary" | "danger";
 }
 
 function cn(...classes: (string | undefined)[]) {
   return twMerge(clsx(...classes));
 }
 
-export default function Button({children, className, size = "medium", shape,   ...props}: ButtonProps) {
+export default function Button({children, className, size = "medium", shape, variant, ...props}: ButtonProps) {
 
   return (
     <button
-      className={cn(buttonVariants({ size, shape }), className)} {...props}>
+      className={cn(buttonVariants({ size, shape, variant }), className)} {...props}>
       {children}
     </button>
   )
@@ -31,7 +34,7 @@ const buttonVariants = cva("rounded-md", {
         "border-2 border-black text-black bg-emerald-500 hover:bg-neutral-200",
       secondary: "border-2 border-white text-white bg-black hover:bg-blue-800",
       danger:
-        "border-none border-red-500 text-red-500 bg-red-600 hover:bg-red-600",
+        "border-none border-red-500 text-white bg-red-600 hover:bg-red-600",
     },
     size: {
       small: "text-sm px-1 py-0",
