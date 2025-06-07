@@ -1,4 +1,7 @@
+import React from 'react';
 import Header from '../components/layout/Header';
+import Card from '../components/common/Card';
+
 
 export default function HomePage() {
   return (
@@ -8,6 +11,10 @@ export default function HomePage() {
         <h1 className="text-2xl font-bold">Welcome to ALX Project</h1>
         <p className="text-gray-600">Next.js + TypeScript + Tailwind CSS</p>
       </main>
+      <Card
+        title ="Welcome to ALX!"
+        description ="This is a modern, reusable card component using TypeScript and Tailwind CSS."
+      />
     </div>
   );
 }
