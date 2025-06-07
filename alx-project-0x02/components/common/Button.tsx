@@ -1,17 +1,10 @@
+import React from 'react';
+import { type ButtonProps } from "@/interfaces";
 import { cva, VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
-import { ButtonProps } from "@/interfaces";
 import { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-  VariantProps<typeof buttonVariants> {
-    children: ReactNode;
-    className?: string;
-    size?: "small" | "medium" | "large";
-    shape?: "default" | "pill" | "square";
-    variant?: "primary" | "secondary" | "danger";
-}
 
 function cn(...classes: (string | undefined)[]) {
   return twMerge(clsx(...classes));
