@@ -13,7 +13,7 @@ export default function HomePage() {
       </main>
       <Card
         title ="Welcome to ALX!"
-        description ="This is a modern, reusable card component using TypeScript and Tailwind CSS."
+        content ="This is a modern, reusable card component using TypeScript and Tailwind CSS."
       />
     </div>
   );
