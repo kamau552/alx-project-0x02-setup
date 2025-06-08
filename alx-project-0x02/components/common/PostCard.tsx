@@ -1,6 +1,7 @@
 import React from 'react'
 import { PostProps } from '@/interfaces'
 
+
 const PostCard: React.FC<PostProps> = ({title, body, userId, button}) => {
   return (
     <div className="border rounded-lg  p-4 shadow-md">
