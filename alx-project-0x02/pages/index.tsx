@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/layout/Header';
 import Card from '../components/common/Card';
 import Post from '../components/common/PostCard';
+import UserCard from  '../components/common/UserCard';
 
 
 
@@ -23,6 +24,11 @@ export default function HomePage() {
         body="This is a sample post body."
         userId={1}
       />
+      <UserCard 
+      id={1} 
+      name="Lake live" 
+      email="lake.live@example.com" 
+      userId={1} />
     </div>
   );
 }

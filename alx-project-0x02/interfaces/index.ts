@@ -44,3 +44,10 @@ export interface PostProps {
   body: string;
   button?: React.ReactNode; 
 }
+
+export interface UserProps {
+  id: number;
+  name: string;
+  email: string;
+  userId: number;
+}
