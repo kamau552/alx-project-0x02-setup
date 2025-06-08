@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PostModal from "@/components/common/PostModal";
-import Header from '../components/layout/Header';
+import Header from "@/components/layout/Header";
 import Card from '@/components/common/Card';
 
 interface Post {
