@@ -1,5 +1,29 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { type VariantProps } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
+
+// Define buttonVariants for use in VariantProps
+export const buttonVariants = cva("button", {
+  variants: {
+    size: {
+      small: "text-sm",
+      medium: "text-base",
+      large: "text-lg",
+    },
+    shape: {
+      "rounded-sm": "rounded-sm",
+      "rounded-md": "rounded-md",
+      "rounded-lg": "rounded-lg",
+      pill: "rounded-full",
+      square: "rounded-none",
+    },
+    variant: {
+      primary: "bg-blue-500 text-white",
+      secondary: "bg-gray-500 text-white",
+      danger: "bg-red-500 text-white",
+    },
+  },
+});
+
 export interface CardProps {
   title: string;
   content: string;
