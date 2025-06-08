@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/layout/Header';
 import Card from '../components/common/Card';
+import Post from '../components/common/PostCard';
 
 
 
@@ -15,6 +16,12 @@ export default function HomePage() {
       <Card
         title ="Welcome to ALX!"
         content ="This is a modern, reusable card component using TypeScript and Tailwind CSS."
+      />
+      <Post
+        id={1}
+        title="Sample Post"
+        body="This is a sample post body."
+        userId={1}
       />
     </div>
   );

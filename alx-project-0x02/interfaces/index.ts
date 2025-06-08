@@ -36,3 +36,11 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     shape?: "rounded-sm" | "rounded-md" | "rounded-lg" | "pill" | "square";
     variant?: "primary" | "secondary" | "danger";
 }
+
+export interface PostProps {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+  button?: React.ReactNode; 
+}
